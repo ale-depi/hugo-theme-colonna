@@ -1,0 +1,82 @@
+<head>
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  {{ $title := ( .Title ) }}
+  {{ $siteTitle := ( .Site.Title ) }}
+  {{ if .IsHome }}
+    <title>{{ $siteTitle }}{{ if isset .Site.Params "subtitle" }} - {{ .Site.Params.Subtitle }}{{ end }} </title>
+  {{ else }}
+    <title>{{ $title }} - {{ $siteTitle }}</title>
+  {{ end }}
+
+  <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="icons/android-chrome-192x192.png">
+  <link rel="shortcut icon" href="icons/favicon.ico">
+
+  {{ with .OutputFormats.Get "rss" }}
+  {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+  {{ end }}
+
+  {{ $style := resources.Get "css/style.css" | resources.Minify | resources.Fingerprint }}
+  <link rel="stylesheet"
+        href="{{ $style.Permalink }}"
+        integrity="{{ $style.Data.Integrity }}"
+        crossorigin="anonymous"
+        type="text/css" />
+  
+  {{ $markupHighlightStyle := resources.Get "css/markup_highlight.css" | resources.Minify | resources.Fingerprint }}
+  <link rel="stylesheet"
+        href="{{ $markupHighlightStyle.Permalink }}"
+        integrity="{{ $markupHighlightStyle.Data.Integrity }}"
+        crossorigin="anonymous"
+        type="text/css" />
+  
+  {{ if .Site.Params.customCSS }}
+    {{ $customStyle := resources.Get "css/custom.css" | resources.Minify | resources.Fingerprint }}
+    <link rel="stylesheet"
+          href="{{ $customStyle.Permalink }}"
+          integrity="{{ $customStyle.Data.Integrity }}"
+          crossorigin="anonymous"
+          type="text/css" />
+  {{ end }}
+
+  {{ $fontAwesome := resources.Get "css/all.min.css" | resources.Fingerprint }}
+  <link rel="stylesheet"
+        href="{{ $fontAwesome.Permalink }}"
+        integrity="{{ $fontAwesome.Data.Integrity }}"
+        crossorigin="anonymous"
+        type="text/css" />
+
+  {{ if not .Site.Params.disableThemeSwitcher }}
+    {{ $themeSwitcher := resources.Get "js/theme-switcher.js" }}
+    {{ $secureThemeSwitcherJS := $themeSwitcher | resources.Minify | resources.Fingerprint }}
+    <script type="text/javascript"
+            src="{{ $secureThemeSwitcherJS.Permalink }}"
+            integrity="{{ $secureThemeSwitcherJS.Data.Integrity }}"
+            crossorigin="anonymous"></script>
+  {{ end }}
+
+  {{ $colonnaHeader := resources.Get "js/header.js" }}
+  {{ $secureHeaderJS := $colonnaHeader |  resources.Minify | resources.Fingerprint }}
+  <script type="text/javascript"
+          src="{{ $secureHeaderJS.Permalink }}"
+          integrity="{{ $secureHeaderJS.Data.Integrity }}"
+          crossorigin="anonymous"></script>
+
+  <!-- twitter cards -->
+  {{ template "_internal/twitter_cards.html" . }}
+
+  <!-- Open graph -->
+  {{ if isset .Site.Taxonomies "series" }}
+  {{ if not (eq (len .Site.Taxonomies.series) 0) }}
+    {{ template "_internal/opengraph.html" . }}
+  {{ end }}
+  {{ end }}
+
+</head>
+

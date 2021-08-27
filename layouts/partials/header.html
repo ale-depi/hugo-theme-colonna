@@ -1,0 +1,61 @@
+<div class="header">
+  
+  <!-- title and theme switcher  -->
+  <base href="{{ .Site.BaseURL }}">
+  <div class="site-title">
+    <h1 class="title-string">
+      <a href="{{ .Site.BaseURL }}">
+        {{ .Site.Params.Title }}
+      </a>
+    </h1>
+    {{ if not .Site.Params.disableThemeSwitcher }}
+      <a class="theme-switch" title="Switch Theme">
+        <i class="fas fa-adjust fa-lg" aria-hidden="true">
+        </i>
+      </a>
+    {{ end }}
+  </div>
+
+  <!-- description -->
+  <div class="site-description">
+    {{ if isset .Site.Params "subtitle" }}
+      <h2>{{ .Site.Params.Subtitle }}</h2>
+    {{ end }}
+  </div>
+
+  <!-- social links -->
+  <div class="social">
+    <ul class="flat">
+      {{ range $item := .Site.Params.socialIcons }}
+        <a href="{{ $item.url }}" title="{{ $item.title }}">
+          <i class="{{ $item.icon }} fa-lg" aria-hidden="true">
+          </i>
+        </a>
+      {{ end }}
+    </ul>
+  </div>
+
+  <!-- navigation bar -->
+  <nav class="page-top">
+    <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+    <ul class="nav" id="navMenu">
+      {{ $url := .RelPermalink }}
+      {{ range .Site.Menus.main }}
+        {{ $active := eq $url .URL }}
+        <li><a {{if $active }}class="current"{{end}}
+               href="{{ .URL }}"
+               {{ if strings.HasPrefix .URL "http" }}
+                 target="_blank"
+                 rel="noopener noreferrer"
+               {{ end }}
+               title="{{ .Title }}">{{ .Name }}</a></li>
+      {{ end }}
+    </ul>
+  </nav>
+
+</div>
+

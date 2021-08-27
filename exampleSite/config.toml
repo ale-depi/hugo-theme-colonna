@@ -1,0 +1,74 @@
+title = "My Website"
+theme = "colonna"
+
+baseURL = "http://example.org/"
+languageCode = "en-us"
+
+enableEmoji = false
+paginate = 5
+summaryLength = 20
+
+## Syntax highlighting
+pygmentsUseClasses = true
+pygmentsCodeFences = true
+pygmentsCodefencesGuessSyntax = true
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+[params]
+  author = "Alessandro De Piccoli"
+  title = "Colonna"
+  subtitle = "Minimal theme"
+  disableThemeSwitcher = false
+  featherIconsCDN = true
+  ## Custom CSS
+  ## Add your custom CSS file in assets/css/custom.css
+  customCSS = false 
+  ## Static home page
+  staticHome = false
+
+  ## Social links
+  ## use 'fab' when brand icons, use 'fas' when standard solid icons.
+  [[params.socialIcons]]
+    icon = "fas fa-envelope"
+    title = "E-mail"
+    url = "mailto:alessandro.depiccoli@unimi.it"
+
+  [[params.socialIcons]]
+    icon = "fab fa-gitlab"
+    title = "GitLab"
+    url = "https://gitlab.di.unimi.it/club/"
+  
+  [[params.socialIcons]]
+    icon = "fab fa-github"
+    title = "GitHub"
+    url = "https://github.com/ale.depi/colonna/"
+  
+[menu]
+  [[menu.main]]
+    name = "Home"
+    url = "/"
+    weight = 100
+  
+  [[menu.main]]
+    name = "Posts"
+    url = "/posts"
+    weight = 200
+  
+  [[menu.main]]
+    name = "About"
+    url = "/about"
+    weight = 300
+  
+  [[menu.main]]
+    name = "Tags"
+    url = "/tags"
+    weight = 400
+
+[taxonomies]
+  tag = "tags"
+  series = "series"
+

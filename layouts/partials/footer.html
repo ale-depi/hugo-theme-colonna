@@ -1,0 +1,12 @@
+<div class="footer">
+  <p>Powered by <a href="https://gohugo.io">Hugo</a> and <a href="https://github.com/ale-depi/colonna">Colonna</a></p>
+  <p>&copy; {{ if isset .Site.Params "copyrightYear" }} {{ .Site.Params.copyrightYear }} {{ else }} {{ now.Format "2006"}} {{end}} {{ .Site.Params.author }}</p>
+</div>
+
+{{ if not .Site.IsServer }}
+  {{ template "_internal/google_analytics_async.html" . }}
+{{ end }}
+{{ with .Site.Params.Social }}
+  <script>feather.replace()</script>
+{{ end }}
+
