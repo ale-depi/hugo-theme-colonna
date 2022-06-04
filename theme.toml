@@ -1,0 +1,12 @@
+name = "Colonna"
+license = "MIT"
+licenselink = "https://github.com/ale-depi/hugo-theme-colonna/blob/master/LICENSE"
+description = "One column is enough"
+homepage = "https://github.com/ale-depi/hugo-theme-colonna"
+tags = ["minimal", "clean", "mobile", "light", "dark"]
+features = ["responsive"]
+min_version = "0.68"
+
+[author]
+    name = "Alessandro De Piccoli"
+    homepage = "https://github.com/ale-depi"

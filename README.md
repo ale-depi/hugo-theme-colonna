@@ -1,5 +1,7 @@
 # Colonna
 
+[![github pages](https://github.com/ale-depi/hugo-theme-colonna/actions/workflows/gh-pages.yml/badge.svg?branch=master)](https://github.com/ale-depi/hugo-theme-colonna/actions/workflows/gh-pages.yml)
+
 Minimal theme for [Hugo](https://gohugo.io/).
 
 ## Credits
@@ -25,7 +27,7 @@ From your Hugo site run the following.
 
 ```sh
 cd themes
-git clone https://github.com/ale-depi/colonna.git
+git clone https://github.com/ale-depi/hugo-theme-colonna.git
 ```
 
 For more information read the
@@ -77,7 +79,7 @@ summaryLength = 20
   [[params.socialIcons]]
     icon = "fab fa-github"
     title = "GitHub"
-    url = "https://github.com/ale-depi/colonna/"
+    url = "https://github.com/ale-depi/hugo-theme-colonna/"
   
 [menu]
   [[menu.main]]

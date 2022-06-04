@@ -1,5 +1,5 @@
 title = "My Website"
-theme = "colonna"
+theme = "hugo-theme-colonna"
 
 baseURL = "http://example.org/"
 languageCode = "en-us"
@@ -45,7 +45,7 @@ pygmentsCodefencesGuessSyntax = true
   [[params.socialIcons]]
     icon = "fab fa-github"
     title = "GitHub"
-    url = "https://github.com/ale.depi/colonna/"
+    url = "https://github.com/ale.depi/hugo-theme-colonna/"
   
 [menu]
   [[menu.main]]
