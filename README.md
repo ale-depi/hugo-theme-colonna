@@ -7,11 +7,6 @@ Minimal theme for [Hugo](https://gohugo.io/).
 Colonna is a Hugo theme based on [Ezhil](https://github.com/vividvilla/ezhil)
 and using files and ideas from [Anatole](https://github.com/lxndrblz/anatole).
 
-## Demo
-
-You can see how the theme looks like at my
-[page](https://homes.di.unimi.it/depiccoli). 
-
 ## Features
 
 * Minimal
