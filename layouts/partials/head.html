@@ -25,14 +25,14 @@
 
   {{ $style := resources.Get "css/style.css" | resources.Minify | resources.Fingerprint }}
   <link rel="stylesheet"
-        href="{{ $style.Permalink }}"
+        href="{{ $style.RelPermalink }}"
         integrity="{{ $style.Data.Integrity }}"
         crossorigin="anonymous"
         type="text/css" />
   
   {{ $markupHighlightStyle := resources.Get "css/markup_highlight.css" | resources.Minify | resources.Fingerprint }}
   <link rel="stylesheet"
-        href="{{ $markupHighlightStyle.Permalink }}"
+        href="{{ $markupHighlightStyle.RelPermalink }}"
         integrity="{{ $markupHighlightStyle.Data.Integrity }}"
         crossorigin="anonymous"
         type="text/css" />
@@ -40,7 +40,7 @@
   {{ if .Site.Params.customCSS }}
     {{ $customStyle := resources.Get "css/custom.css" | resources.Minify | resources.Fingerprint }}
     <link rel="stylesheet"
-          href="{{ $customStyle.Permalink }}"
+          href="{{ $customStyle.RelPermalink }}"
           integrity="{{ $customStyle.Data.Integrity }}"
           crossorigin="anonymous"
           type="text/css" />
@@ -48,7 +48,7 @@
 
   {{ $fontAwesome := resources.Get "css/all.min.css" | resources.Fingerprint }}
   <link rel="stylesheet"
-        href="{{ $fontAwesome.Permalink }}"
+        href="{{ $fontAwesome.RelPermalink }}"
         integrity="{{ $fontAwesome.Data.Integrity }}"
         crossorigin="anonymous"
         type="text/css" />
@@ -57,7 +57,7 @@
     {{ $themeSwitcher := resources.Get "js/theme-switcher.js" }}
     {{ $secureThemeSwitcherJS := $themeSwitcher | resources.Minify | resources.Fingerprint }}
     <script type="text/javascript"
-            src="{{ $secureThemeSwitcherJS.Permalink }}"
+            src="{{ $secureThemeSwitcherJS.RelPermalink }}"
             integrity="{{ $secureThemeSwitcherJS.Data.Integrity }}"
             crossorigin="anonymous"></script>
   {{ end }}
@@ -65,7 +65,7 @@
   {{ $colonnaHeader := resources.Get "js/header.js" }}
   {{ $secureHeaderJS := $colonnaHeader |  resources.Minify | resources.Fingerprint }}
   <script type="text/javascript"
-          src="{{ $secureHeaderJS.Permalink }}"
+          src="{{ $secureHeaderJS.RelPermalink }}"
           integrity="{{ $secureHeaderJS.Data.Integrity }}"
           crossorigin="anonymous"></script>
 

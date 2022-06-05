@@ -12,7 +12,10 @@ jobs:
   deploy:
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
+        with:
+          submodules: true  # Fetch Hugo themes (true OR recursive)
+          fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
 
       - name: setup hugo
         uses: peaceiris/actions-hugo@v2
@@ -21,7 +24,7 @@ jobs:
           # extended: true
 
       - name: build
-        working-directory: exampleSite
+        working-directory: ./exampleSite
         run: hugo --minify --themesDir ../..
 
       - name: deploy
@@ -29,4 +32,5 @@ jobs:
         if: github.ref == 'refs/heads/master'
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public
+          publish_branch: gh-pages
+          publish_dir: ./exampleSite/public

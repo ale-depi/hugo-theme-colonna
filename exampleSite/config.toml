@@ -1,7 +1,7 @@
 title = "My Website"
 theme = "hugo-theme-colonna"
 
-baseURL = "http://example.org/"
+baseURL = "https://ale-depi.github.io/hugo-theme-colonna"
 languageCode = "en-us"
 
 enableEmoji = false
